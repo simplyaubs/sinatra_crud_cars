@@ -1,3 +1,9 @@
 <p>
-  Welcome!
+  <a href="/cars/new">Add New Car</a>
 </p>
+
+<ul>
+  <% list_of_cars.each do |car| %>
+    <li><a href="/cars/<%= car[:id] %>"><%= car[:make] %></a></li>
+  <% end %>
+</ul>
