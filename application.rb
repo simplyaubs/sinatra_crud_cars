@@ -23,4 +23,15 @@ class Application < Sinatra::Application
     DB[:cars].insert(make: params[:make], model: params[:model], color: params[:color])
     redirect '/'
   end
+
+  get '/cars/:id' do
+    car_id = params[:id]
+    erb :show, locals: { single_car: DB[:cars][id: car_id] }
+  end
+
+  put '/cars/:id' do
+    car_id = params[:id]
+    DB[:cars].where(id: car_id).update(make: params[:make], model: params[:model], color: params[:color])
+    redirect "/cars/#{car_id}"
+  end
 end
