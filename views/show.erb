@@ -7,3 +7,10 @@
   <input type="text" name="color" value="<%= single_car[:color] %>">
   <input type="submit" value="Update Car">
 </form>
+
+<form action="/cars/<%= single_car[:id] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Destroy Car">
+</form>
+
+<a href="/">Back to list of cars</a>

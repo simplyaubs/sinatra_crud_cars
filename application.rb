@@ -34,4 +34,10 @@ class Application < Sinatra::Application
     DB[:cars].where(id: car_id).update(make: params[:make], model: params[:model], color: params[:color])
     redirect "/cars/#{car_id}"
   end
+
+  delete '/cars/:id' do
+    car_id = params[:id]
+    DB[:cars].where(id: car_id).delete
+    redirect '/'
+  end
 end
